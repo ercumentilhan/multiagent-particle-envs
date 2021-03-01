@@ -34,6 +34,7 @@ class MultiAgentEnv(gym.Env):
         # if true, every agent has the same reward
         self.shared_reward = world.collaborative if hasattr(world, 'collaborative') else False
         self.time = 0
+        self.render_resolution = (700, 700)
 
         # configure spaces
         self.action_space = []
@@ -218,7 +219,7 @@ class MultiAgentEnv(gym.Env):
                 # import rendering only if we need it (and don't import for headless machines)
                 #from gym.envs.classic_control import rendering
                 from mape import rendering
-                self.viewers[i] = rendering.Viewer(700,700)
+                self.viewers[i] = rendering.Viewer(self.render_resolution[0], self.render_resolution[1])
 
         # create rendering geometry
         if self.render_geoms is None:
