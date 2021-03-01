@@ -5,7 +5,7 @@ from gym.envs.registration import register
 
 register(
     id='MultiagentSimple-v0',
-    entry_point='multiagent.envs:SimpleEnv',
+    entry_point='mape.envs:SimpleEnv',
     # FIXME(cathywu) currently has to be exactly max_path_length parameters in
     # rllab run script
     max_episode_steps=100,
@@ -13,6 +13,6 @@ register(
 
 register(
     id='MultiagentSimpleSpeakerListener-v0',
-    entry_point='multiagent.envs:SimpleSpeakerListenerEnv',
+    entry_point='mape.envs:SimpleSpeakerListenerEnv',
     max_episode_steps=100,
 )

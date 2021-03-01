@@ -1,5 +1,5 @@
 """
-Code for creating a multiagent environment with one of the scenarios listed
+Code for creating a mape environment with one of the scenarios listed
 in ./scenarios/.
 Can be called by using, for example:
     env = make_env('simple_speaker_listener')
@@ -29,14 +29,14 @@ def make_env(scenario_name, benchmark=False):
         .action_space       :   Returns the action space for each agent
         .n                  :   Returns the number of Agents
     '''
-    from multiagent.environment import MultiAgentEnv
-    import multiagent.scenarios as scenarios
+    from mape.environment import MultiAgentEnv
+    import mape.scenarios as scenarios
 
     # load scenario from script
     scenario = scenarios.load(scenario_name + ".py").Scenario()
     # create world
     world = scenario.make_world()
-    # create multiagent environment
+    # create mape environment
     if benchmark:        
         env = MultiAgentEnv(world, scenario.reset_world, scenario.reward, scenario.observation, scenario.benchmark_data)
     else:

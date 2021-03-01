@@ -3,9 +3,9 @@ import os,sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
 import argparse
 
-from multiagent.environment import MultiAgentEnv
-from multiagent.policy import InteractivePolicy
-import multiagent.scenarios as scenarios
+from mape.environment import MultiAgentEnv
+from mape.policy import InteractivePolicy
+import mape.scenarios as scenarios
 
 if __name__ == '__main__':
     # parse arguments
@@ -17,7 +17,7 @@ if __name__ == '__main__':
     scenario = scenarios.load(args.scenario).Scenario()
     # create world
     world = scenario.make_world()
-    # create multiagent environment
+    # create mape environment
     env = MultiAgentEnv(world, scenario.reset_world, scenario.reward, scenario.observation, info_callback=None, shared_viewer = False)
     # render call to create viewer window (necessary only for interactive policies)
     env.render()
