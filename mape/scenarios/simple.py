@@ -19,7 +19,6 @@ class Scenario(BaseScenario):
             landmark.movable = False
 
         # make initial conditions
-        world.set_random_state(0)  # Default seed
         self.reset_world(world)
         return world
 

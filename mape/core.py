@@ -98,7 +98,7 @@ class World(object):
         self.contact_force = 1e+2
         self.contact_margin = 1e-3
 
-        self.rng = None
+        self.rng = np.random.RandomState()
 
     # return all entities in the world
     @property
