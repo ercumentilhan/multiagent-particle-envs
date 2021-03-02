@@ -98,6 +98,8 @@ class World(object):
         self.contact_force = 1e+2
         self.contact_margin = 1e-3
 
+        self.rng = None
+
     # return all entities in the world
     @property
     def entities(self):
@@ -194,3 +196,6 @@ class World(object):
         force_a = +force if entity_a.movable else None
         force_b = -force if entity_b.movable else None
         return [force_a, force_b]
+
+    def set_random_state(self, seed):
+        self.rng = np.random.RandomState(seed)

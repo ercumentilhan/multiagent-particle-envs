@@ -283,6 +283,9 @@ class MultiAgentEnv(gym.Env):
                     dx.append(np.array([x,y]))
         return dx
 
+    def set_world_random_state(self, seed):
+        self.world.set_random_state(seed)
+
 
 # vectorized wrapper for a batch of multi-agent environments
 # assumes all environments have the same observation and action space
