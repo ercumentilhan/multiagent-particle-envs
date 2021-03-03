@@ -56,14 +56,14 @@ def get_display(spec):
         raise error.Error('Invalid display specification: {}. (Must be a string like :0 or None.)'.format(spec))
 
 class Viewer(object):
-    def __init__(self, width, height, display=None):
+    def __init__(self, width, height, display=None, visible=True):
         display = get_display(display)
 
         self.width = width
         self.height = height
 
         self.window = pyglet.window.Window(width=width, height=height, display=display)
-        self.window.set_visible(False)
+        self.window.set_visible(visible)
 
         self.window.on_close = self.window_closed_by_user
         self.geoms = []

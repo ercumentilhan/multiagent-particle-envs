@@ -198,7 +198,7 @@ class MultiAgentEnv(gym.Env):
         self.render_geoms_xform = None
 
     # render environment
-    def render(self, mode='human'):
+    def render(self, mode='human', visible=True):
         if mode == 'human':
             alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
             message = ''
@@ -219,7 +219,7 @@ class MultiAgentEnv(gym.Env):
                 # import rendering only if we need it (and don't import for headless machines)
                 #from gym.envs.classic_control import rendering
                 from mape import rendering
-                self.viewers[i] = rendering.Viewer(self.render_resolution[0], self.render_resolution[1])
+                self.viewers[i] = rendering.Viewer(self.render_resolution[0], self.render_resolution[1], visible=visible)
 
         # create rendering geometry
         if self.render_geoms is None:
