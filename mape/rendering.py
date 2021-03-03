@@ -123,6 +123,7 @@ class Viewer(object):
             # than the requested one.
             arr = arr.reshape(buffer.height, buffer.width, 4)
             arr = arr[::-1,:,0:3]
+            arr = arr[...,::-1]  # RGB -> BGR for OpenCV
         self.window.flip()
         self.onetime_geoms = []
         return arr
